@@ -3,39 +3,57 @@ Created on Tue May 28 19:50:10 2019
 
 @author: devi
 """
+import os
+import shutil
+from os import path
+from sys import stdin,stdout
 
+def copy_paste_of_file(file_name):
+    if path.exists(file_name):
+        src_of_file=path.realpath(file_name)
+    head,tail=path.split(src_of_file)
+    stdout.write("Path of file: "+head)
+    stdout.write("File name: "+tail)
+    
+    dst_of_file=src_of_file + ".bak"                                           #making backup of a file 
+    shutil.copy(src_of_file,dst_of_file)                                        #real copy making using shutil
+    
 def sir():
-    print("SIR")
+    stdout.write("SIR")
 
 #def make_spell_correct():                                                     #for command
 #def make_sys_clear():
 #def game():
     
-print('\n\n\n'+"                                       You R on..")            #welcome print          
+stdout.write('\n\n\n'+"                                       You R on..")            #welcome print          
 
 #system clear to be done
 
-print("What can I do for you?")                                                #taking command
-command=input()
+stdout.write("What can I do for you?")                                                #taking command
+command=stdin.readline()
 if command=='nothing':
-    print("SO DO YOU WANT TO PLAY A GAME...")
-    game=input()
+    stdout.write("SO DO YOU WANT TO PLAY A GAME...")
+    game=stdin.readline()
     if game=="YES":
         game_func()
     else:
         pass
 else:
     #complete the process
-    print("The process name is : "+command)
-    list_of_command=['copy','paste','cut']  #make the list as file to store all the commands
+    stdout.write("The process name is : "+command)
+    list_of_command=['copy','cut','music']  #make the list as file to store all the commands
     if command not in list_of_command:
         list_of_command.append(command)
-        print("COMMAND DOESN'T EXIST")
-        print("PLEASE make the command process")
+        stdout.write("COMMAND DOESN'T EXIST")
+        stdout.write("PLEASE make the command process")
     else:
         if command=="copy": #make all the commands in make_spell_checker func.
-            #make process for copy
-        elif command=="paste":
-            #make process for paste
+            #check process for copy
+            file_name=stdin.readline()
+            copy_paste_of_file()
         elif command=="cut":
             #make process for cut
+        elif command=="music":
+            #also make a music folder
+            #make process for music folder
+            
