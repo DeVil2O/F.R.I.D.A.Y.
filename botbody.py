@@ -7,6 +7,7 @@ import os
 import shutil
 from os import path
 from sys import stdin,stdout
+import datetime
 
 def copy_paste_of_file(file_name):
     if path.exists(file_name):
@@ -27,13 +28,22 @@ def no_sir():
 def sir():
     stdout.write("SIR")
 
+def print_welcome_greetings():
+    currentTime = datetime.datetime.now()
+    if currentTime.hour < 12:
+        stdout.write('Good Morning Sir...')
+    elif 12 <= currentTime.hour < 18:
+        stdout.write('Good AfterNoon Sir...')
+    else:
+        stdout.write('Good Evening Sir...')
+        
 #def make_spell_correct():                                                     #for command
 #def make_sys_clear():
 #def game():
     
 stdout.write('\n\n\n'+(" "*20)+"You R on..")            #welcome print          
+print_welcome_greetings()                               # welcome greetings for the user.
 
-stdout.write("Good "+)
 #system clear to be done
 
 stdout.write("What can I do for you?")                                                #taking command
