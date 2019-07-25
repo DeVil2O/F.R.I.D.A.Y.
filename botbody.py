@@ -1,6 +1,5 @@
 """
 Created on Tue May 28 19:50:10 2019
-
 @author: devi
 """
 import os
@@ -8,6 +7,7 @@ import shutil
 from os import path
 from sys import stdin,stdout
 import datetime
+from title import *
 
 def copy_paste_of_file(file_name):
     if path.exists(file_name):
@@ -40,8 +40,8 @@ def print_welcome_greetings():
 #def make_spell_correct():                                                     #for command
 #def make_sys_clear():
 #def game():
-    
-stdout.write('\n\n\n'+(" "*20)+"You R on..")            #welcome print          
+
+title_head()                                            # welcome print          
 print_welcome_greetings()                               # welcome greetings for the user.
 
 #system clear to be done
@@ -73,4 +73,4 @@ else:
         elif command=="music":
             #also make a music folder
             #make process for music folder
-            
+            print("Hell")
